@@ -8,8 +8,8 @@
 </h2>
 <?php
     echo "Hello"."World";
-    ?>
+?>
     <h2>String Length Func</h2>
-    <?php
+<?php
     echo strlen("Hello World");
-    ?>
+?>

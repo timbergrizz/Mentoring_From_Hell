@@ -1,32 +1,27 @@
-<!doctype html>
-<html>
-    <head>
-        <title>George Orwell - Welcome</title>
-        <meta charset="utf-8">
-    </head>
+<?php
+    require('view/top.php');
+    ?>
 
-    <body>
-        <h1><a href="index.php">George Orwell</a></h1>
-        <ol>
-            <?php
-                $file_list = scandir('./data'); 
-                $counter = 0;
-                while($counter < count($file_list)){
-                    if($file_list[$counter]!= '.' && $file_list[$counter] != '..'){
-                    echo "<li><a href=\"index.php?id=$file_list[$counter]\">$file_list[$counter]</a></li>";
-                    }
-                    $counter++;
-                }
+    <h2><?php
+        print_title();
         ?>
-    </ol>
+        </h2>
+    <p><a href="./create.php">Create</a>
+    <?php
+    if (isset($_GET['id'])){
+    
+    ?>
+    <a href="./update.php?id=<?=$_GET['id']?>">Edit</a> 
+    <form action="./delete_process.php" method="post">
+        <input type="hidden" name="id" value="<?=$_GET['id']?>">
+        <input type="submit" value="delete">
+    </form>
+    <?php }?>
+    </p>
         <?php
-        
-        if(isset($_GET["id"])){
-
-            echo file_get_contents("./data/".$_GET['id']);
-        }else {
-            echo "Welcome";
-        }
+        print_description()
         ?>
-        </body>
-</html>
+
+    <?php
+    require('view/bottom.php');
+    ?>
