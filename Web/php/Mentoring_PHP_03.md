@@ -352,6 +352,7 @@ basename을 이용하면 부모 디렉토리로 접근하려는 텍스트가 제
 ![](./images/Mentoring_PHP_03/03-81.png)
 
 이를 통해 공격자는 post 방식을 통해 delete_process에 id값을 제시해 의도치 않은 삭제를 유도 할 수 있다. 이 또한 부모 디렉토리의 접근을 막는것과 같은 방법을 사용할 수 있다.
+
 ![](./images/Mentoring_PHP_03/03-82.png)
 
 이제 data 폴더를 제외한 디렉토리에서 삭제 명령이 불가능해진다.
