@@ -44,7 +44,7 @@ docker를 이용해 apache를 실행한 모습이다.
 
 ![](./img/01-7.png)
 
-![](./img/01-8.png)
+![](./img/01-8.jpg)
 
 ![](./img/01-9.png)
 
