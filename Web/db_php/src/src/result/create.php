@@ -10,7 +10,17 @@ while ($result_arr = mysqli_fetch_array($result)){
   $html_return = $html_return."<li><a href='index.php?id=".$result_arr['id']."'>".$result_arr['title']."</a></li>";
   }
   
+  $query = "SELECT * FROM author";
+  $result = mysqli_query($conn, $query);
 
+  $select_form ='<select name="author_id">';
+
+  while ($result_arr = mysqli_fetch_array($result)){
+    $select_form .= "<option value={$result_arr['id']}>".$result_arr['name']."</option>";
+  }
+
+
+  $select_form .= '</select>';
 ?>
 <!doctype html>
 <html>
@@ -27,6 +37,7 @@ while ($result_arr = mysqli_fetch_array($result)){
     <form action="create_process.php" method="POST">
       <p><input type="text" name="title" placeholder="Title"></p>
       <p><textarea name="description" placeholder="Description"></textarea></p>
+      <p><?=$select_form ?></p>
       <input type="submit">
     </form>
 
