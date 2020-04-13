@@ -7,19 +7,19 @@ $filtered = array (
     'password' => mysqli_real_escape_string($conn, $_POST['password'])
 );
 
+
 $sql = "select id, password from user where id='{$filtered['id']}'";
 
 if(!($result = query_return_arr($conn, $sql))){
-    echo "Login Failed. Check your ID.<a href='../login.php'>Return to login page</a>";
+    header('Location: ../login.php?error=id');
     exit();
 }else if($filtered['password'] != $result['password']){
-    
-    echo "Login Failed. Check your password. <a href='../login.php'>Return to login page</a>";
+    header('Location: ../login.php?error=password');
     exit();
-    
+
 }
 
-echo "Login Success";
-
-
+    session_start();
+    $_SESSION["user_id"] = $filtered['id'];
+    header('Location: ../index.php');
 ?>

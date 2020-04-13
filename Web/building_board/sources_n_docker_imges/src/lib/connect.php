@@ -17,4 +17,8 @@ function query_return_arr($conn, $sql){
 
     return $result_arr;
 }
+
+session_start();
+$user_id = $_SESSION['user_id']
+
 ?>

@@ -1,3 +1,13 @@
+<?php
+$login_fallure ='';
+
+if($_GET['error']=='id'){
+    $login_fallure = "Login Failed. Please Check Your ID";
+}else if($_GET['error']=='Password'){
+    $login_fallure = "Login Failed. Please Check Your Password";
+}
+
+?>
 <!doctype html>
 <html>
   <head>
@@ -7,6 +17,7 @@
   <body>
     <h1>Login</h1>
 
+    <?=$login_fallure ?>
     <form action="process/login.php" method="post">
         
         <p><input type="text" name="id" placeholder="ID"></p>
