@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("lib/connect.php");
 
 $filtered_id = $_GET['id'];
