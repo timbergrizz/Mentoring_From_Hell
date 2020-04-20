@@ -1,7 +1,7 @@
 <?php
-echo "MySql 연결 테스트<br>";
+echo "MySql connection tester<br>";
  
-$db = mysqli_connect("db", "root", "root", "opentutorials");
+$db = mysqli_connect("db", "root", "rootroot", "building_board");
  
 if($db){
     echo "connect : 성공<br>";
