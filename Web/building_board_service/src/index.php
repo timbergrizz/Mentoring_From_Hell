@@ -4,7 +4,7 @@ require_once("lib/connect.php");
 
 $return = "<a href=\"login.php\">Sign In</a></p>"; 
 
-if(isset($user_id)){
+if(isset($_SESSION['user_id'])){ //로그인 되어있을때만 작동
   $sql = "select id, nickname from user where id = '{$user_id}'"; //세션으로 알려진 user.id를 통해 user table에서 정보 가져오기
   
   if($user = query_return_arr($conn, $sql)) { // sql 받아온것 확인
