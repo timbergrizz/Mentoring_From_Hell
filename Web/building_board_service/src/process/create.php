@@ -21,7 +21,7 @@ values (
     
 if(!mysqli_query($conn, $sql)){
     echo "There was a problem with saving data. Ask for administrator.";
-    error_log(mysqli_error($conn));
+    print(mysqli_error($conn));
 }else
     header('Location: ../index.php');
 
