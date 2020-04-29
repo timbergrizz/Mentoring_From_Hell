@@ -1,9 +1,7 @@
 <?php
 require_once("../lib/connect.php");
 
-var_dump($_FILE['file']);
 
-exit();
 $filtered = Array(
     "user_id" => mysqli_real_escape_string($conn, $_POST["user_id"]),
     "title" => mysqli_real_escape_string($conn, $_POST["title"]),
