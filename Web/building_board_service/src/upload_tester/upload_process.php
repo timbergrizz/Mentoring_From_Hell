@@ -12,7 +12,7 @@ if(file_exists($target_flie)){ // 파일명 중복 확인.
     $upload_checker = 0;
 }
 */
-if ($uploadOk == 0) { // 파일 업로드 유효성 검사 실패. 파일 업로드가 이루어지지 않음
+if ($upload_checker == 0) { // 파일 업로드 유효성 검사 실패. 파일 업로드가 이루어지지 않음
     echo "Sorry, your file was not uploaded.";
 } else { // 파일 업로드가 이루어짐.
     if (move_uploaded_file($_FILES["file_uplaod"]["tmp_name"], $target_file)) {
