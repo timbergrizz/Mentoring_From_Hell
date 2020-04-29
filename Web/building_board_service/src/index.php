@@ -7,7 +7,7 @@ $sql = "select id, nickname from user where id = '{$user_id}'"; //세션으로 �
 $return = "<a href=\"login.php\">Sign In</a></p>"; 
 if($user = query_return_arr($conn, $sql)) { // sql 받아온것 확인
     $return = "Hello! ".$user['nickname']."
-    <p><a href='logout.php'>Sign Out</p>
+    <p><a href='process/logout.php'>Sign Out</p>
     <p><a href='create.php'>Create New Article</a></p>
     ";
 }
