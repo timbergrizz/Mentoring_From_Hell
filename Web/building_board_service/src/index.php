@@ -2,14 +2,18 @@
 require_once("lib/connect.php");
 
 
-$sql = "select id, nickname from user where id = '{$user_id}'"; //세션으로 알려진 user.id를 통해 user table에서 정보 가져오기
-
 $return = "<a href=\"login.php\">Sign In</a></p>"; 
-if($user = query_return_arr($conn, $sql)) { // sql 받아온것 확인
+
+if(isset($user_id)){
+  $sql = "select id, nickname from user where id = '{$user_id}'"; //세션으로 알려진 user.id를 통해 user table에서 정보 가져오기
+  
+  if($user = query_return_arr($conn, $sql)) { // sql 받아온것 확인
     $return = "Hello! ".$user['nickname']."
     <p><a href='process/logout.php'>Sign Out</p>
     <p><a href='create.php'>Create New Article</a></p>
     ";
+  }
+
 }
 
 $sql = "select * from article order by id desc";

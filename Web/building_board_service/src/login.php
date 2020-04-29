@@ -1,12 +1,13 @@
 <?php
 $login_fallure ='';
 
-if($_GET['error']=='id'){
+if(isset($_GET['error'])){
+  if($_GET['error']=='id'){
     $login_fallure = "Login Failed. Please Check Your ID";
-}else if($_GET['error']=='Password'){
+  }else if($_GET['error']=='Password'){
     $login_fallure = "Login Failed. Please Check Your Password";
+  }
 }
-
 ?>
 <!doctype html>
 <html>
