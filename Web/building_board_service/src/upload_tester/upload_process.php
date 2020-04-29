@@ -4,7 +4,7 @@ $target_file = $target_dir . basename($_FILES["file_upload"]["name"]); // 파일
 $upload_checker = 1; // 업로드 유효성 확인용
 
 
-print_r($_FILES);
+print_r($_FILES["file_upload"]["name"]);
 
 /*
 if($_FILES["file_upload"]["name"] == NULL){
