@@ -5,7 +5,6 @@ $upload_checker = 1; // 업로드 유효성 확인용
 
 
 print_r($_FILES);
-die();
 
 /*
 if($_FILES["file_upload"]["name"] == NULL){
