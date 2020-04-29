@@ -15,10 +15,11 @@ if(file_exists($target_flie)){ // 파일명 중복 확인.
 if ($upload_checker == 0) { // 파일 업로드 유효성 검사 실패. 파일 업로드가 이루어지지 않음
     echo "Sorry, your file was not uploaded.";
 } else { // 파일 업로드가 이루어짐.
-    if (move_uploaded_file($_FILES["file_uplaod"]["tmp_name"], $target_file)) {
+    if (move_uploaded_file($_FILES["file_upload"]["name"], $target_file)) {
     print("file successfully uploaded");
 
     } else {
+        echo "there is an error";
         ini_set("display_errors", 1);
         error_reporting(E_ALL);
     }
