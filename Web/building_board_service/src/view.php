@@ -23,7 +23,7 @@ if(gettype($filtered_id)=='integer'){
     );
 
 
-    if($user_id == $article['user_id']){
+    if($_SESSION['user_id'] == $article['user_id']){
         $button = ' <form action="process/delete.php" method="post">
                     <input type="hidden" name="id" value="'.$filtered_id.'">
                     <a href="update.php?id='.$filtered_id.'">edit</a>
