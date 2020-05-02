@@ -19,6 +19,5 @@ function query_return_arr($conn, $sql){
 }
 
 session_start();
-$user_id = $_SESSION['user_id'];
 
 ?>
