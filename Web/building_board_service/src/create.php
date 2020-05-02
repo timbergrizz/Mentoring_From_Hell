@@ -15,10 +15,7 @@ require_once("lib/connect.php");
         <p><input type="hidden" name="user_id" value="<?=$_SESSION['user_id'] ?>"></p>
         <p><input type="text" name="title" placeholder="title"></p>
         <p><textarea name="content" placeholder="content"></textarea></p>
-        <p>
-          <input type="file" name="file_upload" id="file_upload">
-          <input type="submit" value="Upload Image" name="submit"> 
-        </p>
+        <p><input type="file" name="file_upload" id="file_upload"></p>
         <p><input type="submit"></p>
     </form>
   </body>
