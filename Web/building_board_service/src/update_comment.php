@@ -7,7 +7,7 @@ settype($filtered_id, "int");
 $sql = "select user_id, article_id, comment from comment where id = ".$filtered_id;
 $result = query_return_arr($conn, $sql);
 
-if($user_id != $result['user_id']){
+if($_SESSION['user_id'] != $result['user_id']){
     die("Access Denied. <a href='index.php'>Return Home</a>");
 }
 $filtered_comment = htmlspecialchars($result['comment']);
