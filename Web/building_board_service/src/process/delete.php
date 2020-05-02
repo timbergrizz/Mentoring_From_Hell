@@ -7,7 +7,7 @@ require_once("../lib/connect.php");
     $sql = "select user_id from article where id = ".$filtered_id;
     $result = query_return_arr($conn, $sql);
     
-    if($user_id != $result['user_id']){
+    if($_SESSION['user_id'] != $result['user_id']){
         die("Access Denied. <a href='index.php'>Return Home</a>");
     }else{
         $sql = "delete from article where id=".$filtered_id;

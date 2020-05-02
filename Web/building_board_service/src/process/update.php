@@ -9,6 +9,9 @@
         'content'=> mysqli_real_escape_string($conn, $_POST['content'])
     );
     
+    if($_SESSION['user_id'] != $filtered['id']){
+        die("Access Denied");
+    }
 
     $sql = "
     update article
