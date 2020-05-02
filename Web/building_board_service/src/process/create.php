@@ -8,8 +8,6 @@ $filtered = Array(
     "content" => mysqli_real_escape_string($conn, $_POST["content"])
 );
 
-var_dump($_FILES["file_upload"]);
-die();
 
 if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
     $target_dir = "uploads/"; // 파일 업로드 되는 위치
