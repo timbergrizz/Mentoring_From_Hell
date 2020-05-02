@@ -14,6 +14,10 @@ if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
     $target_file = $target_dir . basename($_FILES["file_upload"]["name"]); // 파일 업로드되는 경로 + 파일
     $upload_checker = 1; // 업로드 유효성 확인용
 
+    echo $target_file;
+    die();
+
+    
     if(file_exists($target_file)){ // 파일명 중복 확인.
         echo "file name is already used.\n";
         die();
