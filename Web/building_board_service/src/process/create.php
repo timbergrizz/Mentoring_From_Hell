@@ -17,18 +17,21 @@ if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
     $upload_checker = 1; // 업로드 유효성 확인용
 
     if(file_exists($target_file)){ // 파일명 중복 확인.
-        echo "file name is already used.";
+        echo "file name is already used.\n";
+        die();
         $upload_checker = 0;
     
     }
     if ($upload_checker == 0) { // 파일 업로드 유효성 검사 실패. 파일 업로드가 이루어지지 않음
         echo "Sorry, your file was not uploaded.";
+        die();
     } else { // 파일 업로드가 이루어짐.
     
         if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
             
         } else {
             echo "there is an error";
+            die();
         }
     }
 }
