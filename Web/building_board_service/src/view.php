@@ -37,7 +37,7 @@ if(gettype($filtered_id)=='integer'){
   $file_downloader = "";
 
   if(isset($result['filename'])){
-      $file_downloader = "<form target='process/download.php' method='GET'>
+      $file_downloader = "<form action='process/download.php' method='GET'>
         <input type='button' value='Download File'>
       </form>";
   }
