@@ -4,8 +4,8 @@ require_once("../lib/connect.php");
 $filename = $_GET["filename"];                      
 $file_dir = "../uploads/".$filename;  
 
-
-die($file_dir);
+echo($file_dir);
+die();
 
 header('Content-Type: application/x-octetstream');
 header('Content-Length: '.filesize($file_dir));
