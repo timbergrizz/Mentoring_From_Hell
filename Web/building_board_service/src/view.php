@@ -5,7 +5,7 @@ $filtered_id = $_GET['id'];
 settype($filtered_id, "int");
 
 $sql = "
-select title, content, user_id ,article.created, nickname from article left join user on article.user_id=user.id
+select title, content, user_id, filename, article.created, nickname from article left join user on article.user_id=user.id
 where article.id={$filtered_id}";
 
 
@@ -19,7 +19,8 @@ if(gettype($filtered_id)=='integer'){
         'content' => htmlspecialchars($result['content']),
         'user_id'=> htmlspecialchars($result['user_id']),
         'created' => htmlspecialchars($result['created']),
-        'nickname' => htmlspecialchars($result['nickname'])    
+        'nickname' => htmlspecialchars($result['nickname']),
+        'filename' => htmlspecialchars($result['filename'])    
     );
 
 
@@ -34,6 +35,9 @@ if(gettype($filtered_id)=='integer'){
       die( "Wrong Access. <a href='index.php'>Return Home</a>");
   }
 
+  if(isset($result['filename'])){
+        echo("<p><a href='{$result['filename']}'> Download File </a></p>");
+  }
 
   $sql = "select comment.id, comment.user_id, comment, nickname, comment.created from comment left join user on comment.user_id = user.id where article_id = ".$filtered_id;
   $result_comment = mysqli_query($conn, $sql);
