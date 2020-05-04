@@ -9,13 +9,21 @@ $filtered = Array(
 );
 
 
+
+$sql = "
+insert into article
+(title, content, user_id)
+values (
+'{$filtered['title']}',
+'{$filtered['content']}',
+'{$filtered['user_id']}'
+)
+";
+
 if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
     $target_dir = "../uploads/"; // 파일 업로드 되는 위치
     $target_file = $target_dir . basename($_FILES["file_upload"]["name"]); // 파일 업로드되는 경로 + 파일
     $upload_checker = 1; // 업로드 유효성 확인용
-
-    echo $target_file;
-    die();
 
     
     if(file_exists($target_file)){ // 파일명 중복 확인.
@@ -34,6 +42,18 @@ if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
                 "filename" => mysqli_real_escape_string($conn, $_FILES["file_upload"]["name"]),
                 "filesize" => mysqli_real_escape_string($conn, $_FILES["file_upload"]["size"])
             );
+
+        $sql = "
+            insert into article
+            (title, content, user_id, filename, filesize)
+            values (
+            '{$filtered['title']}',
+            '{$filtered['content']}',
+            '{$filtered['user_id']}',
+            '{$filtered_file['filename']}',
+            '{$filtered_file['filesize']}'
+        )
+        ";
         } else {
             echo "there is an error";
             die();
@@ -44,17 +64,6 @@ if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
 var_dump($filtered_file);
 die();
 
-$sql = "
-insert into article
-(title, content, user_id)
-values (
-    '{$filtered['title']}',
-    '{$filtered['content']}',
-    '{$filtered['user_id']}',
-    '{$filtered_file['filename']}',
-    '{$filtered_file['filesize']}'
-)
-";
 
     
 if(!mysqli_query($conn, $sql)){
