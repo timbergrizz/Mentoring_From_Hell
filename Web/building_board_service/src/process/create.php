@@ -61,10 +61,6 @@ if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
     }
 }
 
-var_dump($filtered_file);
-die();
-
-
     
 if(!mysqli_query($conn, $sql)){
     echo "There was a problem with saving data. Ask for administrator.";
