@@ -34,8 +34,11 @@ if(gettype($filtered_id)=='integer'){
   }else {
       die( "Wrong Access. <a href='index.php'>Return Home</a>");
   }
+  $file_downloader = "";
 
-        echo("<p><a href='uploads/{$result['filename']}'> Download File </a></p>");
+  if(isset($result['filename'])){
+      $file_downloader = "<p><a href='uploads/{$result['filename']}'> Download File </a></p>";
+  }
 
   $sql = "select comment.id, comment.user_id, comment, nickname, comment.created from comment left join user on comment.user_id = user.id where article_id = ".$filtered_id;
   $result_comment = mysqli_query($conn, $sql);
@@ -98,6 +101,8 @@ if(gettype($filtered_id)=='integer'){
     <p>
         <?=$article['content'] ?>
     </p>
+
+    <?=$file_downloader ?>
 
     <p><a href="index.php">Return Home</a></p>
 
