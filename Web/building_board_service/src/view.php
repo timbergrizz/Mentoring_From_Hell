@@ -37,7 +37,7 @@ if(gettype($filtered_id)=='integer'){
   $file_downloader = "";
 
   if(isset($result['filename'])){
-      $file_downloader = "<p> <a href='process/download.php?filename={$article['filename']}'> Download File </a> </p>";
+      $file_downloader = "<p> <a href='process/download.php?filename={$article['filename']}&article_id={$filtered_id}'> Download File </a> </p>";
   }
 
   $sql = "select comment.id, comment.user_id, comment, nickname, comment.created from comment left join user on comment.user_id = user.id where article_id = ".$filtered_id;

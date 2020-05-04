@@ -17,6 +17,4 @@ if(file_exists($filename)){
     fclose($fp);
 }
 
-
-header('Location: ../view.php');
 ?>
