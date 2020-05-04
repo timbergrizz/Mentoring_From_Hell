@@ -37,7 +37,9 @@ if(gettype($filtered_id)=='integer'){
   $file_downloader = "";
 
   if(isset($result['filename'])){
-      $file_downloader = "<p><a href='uploads/{$result['filename']}'> Download File </a></p>";
+      $file_downloader = "<form target='process/download.php' method='GET'>
+        <input type='button' value='Download File'>
+      </form>";
   }
 
   $sql = "select comment.id, comment.user_id, comment, nickname, comment.created from comment left join user on comment.user_id = user.id where article_id = ".$filtered_id;
