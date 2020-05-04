@@ -64,7 +64,7 @@ if(gettype($filtered_id)=='integer'){
     ";
 
 
-    if($user_id == $comment_filtered['user_id']){
+    if($_SESSION['user_id'] == $comment_filtered['user_id']){
         $comment_table .= "        
     <tr>
         <td><a href='update_comment.php?id={$comment_filtered['id']}'>edit</td>
