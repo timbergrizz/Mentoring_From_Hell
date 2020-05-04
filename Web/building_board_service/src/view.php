@@ -35,9 +35,7 @@ if(gettype($filtered_id)=='integer'){
       die( "Wrong Access. <a href='index.php'>Return Home</a>");
   }
 
-  if(isset($result['filename'])){
         echo("<p><a href='{$result['filename']}'> Download File </a></p>");
-  }
 
   $sql = "select comment.id, comment.user_id, comment, nickname, comment.created from comment left join user on comment.user_id = user.id where article_id = ".$filtered_id;
   $result_comment = mysqli_query($conn, $sql);
