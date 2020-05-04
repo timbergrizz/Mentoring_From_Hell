@@ -10,11 +10,8 @@ header('Content-Disposition: attachment; filename='.$filename);
 header('Content-Transfer-Encoding: binary');
 
 
-
-if(file_exists($filename)){
-    $fp = fopen($file_dir, "r");
-    fpassthru($fp);
-    fclose($fp);
-}
+$fp = fopen($file_dir, "r");
+fpassthru($fp);
+fclose($fp);
 
 ?>
