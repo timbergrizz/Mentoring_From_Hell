@@ -5,13 +5,9 @@ require_once("../lib/connect.php");
 $filtered = Array(
     "user_id" => mysqli_real_escape_string($conn, $_POST["user_id"]),
     "title" => mysqli_real_escape_string($conn, $_POST["title"]),
-    "content" => mysqli_real_escape_string($conn, $_POST["content"]),
-    "filename" => mysqli_real_escape_string($conn, $_FILES["file_upload"]["name"]),
-    "filesize" => mysqli_real_escape_string($conn, $_FILES["file_upload"]["size"])
+    "content" => mysqli_real_escape_string($conn, $_POST["content"])
 );
 
-var_dump($filtered);
-die();
 
 if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
     $target_dir = "../uploads/"; // 파일 업로드 되는 위치
@@ -34,12 +30,19 @@ if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
     } else { // 파일 업로드가 이루어짐.
     
         if (move_uploaded_file($_FILES["file_upload"]["tmp_name"], $target_file)) {
+            $filtered_file = Array(
+                "filename" => mysqli_real_escape_string($conn, $_FILES["file_upload"]["name"]),
+                "filesize" => mysqli_real_escape_string($conn, $_FILES["file_upload"]["size"])
+            );
         } else {
             echo "there is an error";
             die();
         }
     }
 }
+
+var_dump($filtered_file);
+die();
 
 $sql = "
 insert into article
@@ -48,8 +51,8 @@ values (
     '{$filtered['title']}',
     '{$filtered['content']}',
     '{$filtered['user_id']}',
-    '{$filtered['filename']}',
-    '{$filtered['filesize']}'
+    '{$filtered_file['filename']}',
+    '{$filtered_file['filesize']}'
 )
 ";
 
