@@ -1,4 +1,4 @@
-<?
+<?php
 require_once("../lib/connect.php");
 
 $filename = $_GET["filename"];                      

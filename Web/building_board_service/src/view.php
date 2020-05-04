@@ -24,7 +24,7 @@ if(gettype($filtered_id)=='integer'){
     );
 
 
-    if($_SESSION['user_id'] == $article['user_id']){
+    if(isset($_SESSION['user_id'])&&$_SESSION['user_id'] == $article['user_id']){
         $button = ' <form action="process/delete.php" method="post">
                     <input type="hidden" name="id" value="'.$filtered_id.'">
                     <a href="update.php?id='.$filtered_id.'">edit</a>
@@ -62,7 +62,7 @@ if(gettype($filtered_id)=='integer'){
     ";
 
 
-    if($_SESSION['user_id'] == $comment_filtered['user_id']){
+    if(isset($_SESSION['user_id'])&&$_SESSION['user_id'] == $comment_filtered['user_id']){
         $comment_table .= "        
     <tr>
         <td><a href='update_comment.php?id={$comment_filtered['id']}'>edit</td>
