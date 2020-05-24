@@ -5,7 +5,7 @@ require_once("../lib/connect.php");
 $filtered = Array(
     "article_id" => mysqli_real_escape_string($conn, $_POST["article_id"]),
     "comment" => mysqli_real_escape_string($conn, $_POST["comment"]),
-    "user_id" => $user_id
+    "user_id" => $_SESSION['user_id']
 );
 
 $sql = "insert into comment(comment, article_id, user_id)

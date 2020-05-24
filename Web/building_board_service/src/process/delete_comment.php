@@ -9,7 +9,7 @@ require_once("../lib/connect.php");
 
     $article_id = $result['article_id'];
     
-    if($user_id != $result['user_id']){
+    if($_SESSION["user_id"] != $result['user_id']){
         die("Access Denied. <a href='../index.php'>Return Home</a>");
     }else{
         $sql = "delete from comment where id=".$filtered_id;
