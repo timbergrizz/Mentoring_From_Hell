@@ -1,7 +1,7 @@
 <?php
     require_once("lib/connect.php");
 
-    $filtered_id = $_POST['id'];
+    $filtered_id = $_GET['id'];
     settype($filtered_id, "int");
 
     $sql = "select user_id, title, content from article where id = ".$filtered_id;
