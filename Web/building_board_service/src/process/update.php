@@ -9,6 +9,8 @@
         'content'=> mysqli_real_escape_string($conn, $_POST['content'])
     );
     
+    authentication($filtered['id'], $conn);
+
     $sql = "
     update article
     set
