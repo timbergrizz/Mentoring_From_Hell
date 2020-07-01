@@ -21,7 +21,7 @@ values (
 ";
 
 if($_FILES["file_upload"]['size']!=0){ // 파일 존재시에만 작동
-    $target_dir = "../uploads/cadjcnkl/acdzasvzzc/A1wfdasdvzxcgb134342/aG93IGNhbiBpIGV4cGxhaW4KYWxsIG15IGZyaWVuZHMKY2FuIHlvdSBzaG93IG1lIGEgbWlyYWNs/"; // 파일 업로드 되는 위치
+    $target_dir = "../uploads/"; // 파일 업로드 되는 위치
     $target_file = $target_dir . basename($_FILES["file_upload"]["name"]); // 파일 업로드되는 경로 + 파일
     $upload_checker = 1; // 업로드 유효성 확인용
 
