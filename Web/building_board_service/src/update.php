@@ -7,9 +7,8 @@
     $sql = "select user_id, title, content from article where id = ".$filtered_id;
     $result = query_return_arr($conn, $sql);
 
-    if($_SESSION['user_id'] != $result['user_id']){
-        die("Access Denied. <a href='index.php'>Return Home</a>");
-    }
+    authentication($filtered_id, $conn);
+    
     $filtered = Array(
         'title' => htmlspecialchars($result['title']),
         'content' => htmlspecialchars($result['content']),

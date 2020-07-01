@@ -7,6 +7,8 @@
         'comment' => mysqli_real_escape_string($conn, $_POST['comment']),
         'id'=> $_POST['id']
     );
+
+    authentication_comment($filtered['id'], $conn);
     
 
     $sql = "

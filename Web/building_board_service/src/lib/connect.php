@@ -20,11 +20,20 @@ function query_return_arr($conn, $sql){
 
 session_start();
 
-function authentication($filtered_id, $conn){
-  $sql = "select user_id from article where id = ".$filtered_id;
+function authentication($article_id, $conn){
+  $sql = "select user_id from article where id = ".$article_id;
   $result = query_return_arr($conn, $sql);
 
-  
+  if($_SESSION['user_id'] != $result['user_id']){
+      die("Access Denied. <a href='index.php'>Return Home</a>");
+  }
+
+}
+
+function authentication_comment($comment_id, $conn){
+  $sql = "select user_id from comment where id = ".$comment_id;
+  $result = query_return_arr($conn, $sql);
+
   if($_SESSION['user_id'] != $result['user_id']){
       die("Access Denied. <a href='index.php'>Return Home</a>");
   }
